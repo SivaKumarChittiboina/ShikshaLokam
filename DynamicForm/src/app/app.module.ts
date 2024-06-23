@@ -10,7 +10,6 @@ import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,7 +24,6 @@ import { HttpClientModule } from '@angular/common/http';
     MatInputModule,
     MatButtonModule,
     CommonModule,
-    HttpClientModule
   ],
   providers: [
     provideAnimationsAsync()

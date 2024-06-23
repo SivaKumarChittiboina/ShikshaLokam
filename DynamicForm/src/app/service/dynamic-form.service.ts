@@ -1,7 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { BehaviorSubject, Observable, Subject, Subscriber } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 import formMetaData from '../../assets/form-metadata.json'
 
@@ -9,10 +8,10 @@ import formMetaData from '../../assets/form-metadata.json'
   providedIn: 'root'
 })
 export class DynamicFormService {
-  
-  constructor(private _httpClient: HttpClient, private _formBuilder: FormBuilder) {
+
+  constructor(private _formBuilder: FormBuilder) {
   }
- 
+
   getFormMetadata(): Observable<any> {
     return new BehaviorSubject(formMetaData);
   }
@@ -54,7 +53,5 @@ export class DynamicFormService {
     }
     return Validators.compose(validList);
   }
-
-
 
 }

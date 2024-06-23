@@ -3,8 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 
 const routes: Routes = [
-  {path: 'dynamicForm', component: DynamicFormComponent},
-  {path: '', redirectTo: "dynamicForm", pathMatch: "full"}
+  { path: 'dynamicForm', component: DynamicFormComponent },
+  { path: '', redirectTo: "dynamicForm", pathMatch: "full" }
 ];
 
 @NgModule({

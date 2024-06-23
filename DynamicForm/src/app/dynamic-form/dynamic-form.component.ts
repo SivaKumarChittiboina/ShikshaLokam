@@ -31,8 +31,8 @@ export class DynamicFormComponent {
 
   onSubmit() {
     this.formGroup?.markAllAsTouched();
-    if(this.formGroup?.invalid){
-      
+    if (this.formGroup?.invalid) {
+      return;
     }
   }
 }
