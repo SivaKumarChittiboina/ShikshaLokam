@@ -1,0 +1,35 @@
+
+
+.form_header{
+    background-color: orange;
+    color: white;
+    font-weight: 600;
+    font-size: 1.5rem;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.labelTxt{
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+
+.btn-orange {
+    color: white;
+    border-color: orange;
+    border: none;
+    background-color: orange;
+    
+  }
+  
+
+  
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+
+select.ng-invalid.ng-touched{
+    border: 1px solid red;
+}

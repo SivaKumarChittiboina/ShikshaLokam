@@ -1,0 +1,98 @@
+<div class="w-100  h-100">
+  <div class="form_header d-flex" style="height: 8%;">
+    <span>{{ formDetails.title | uppercase }}</span>
+  </div>
+
+  <div class="overflow-y-scroll" style="height: 92%;">
+    <div class="justify-content-center d-flex py-3">
+      <div class="w-30 bg_white p-3">
+
+        <form *ngIf="formGroup" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+          <div *ngFor="let section of formDetails.formFields">
+            <div class="labelTxt">
+              <label> {{ section.label | titlecase }}</label>
+            </div>
+            <div *ngFor="let field of section.fields" class="py-2">
+              <div *ngIf="field.type === 'text' || field.type === 'date'" class="d-flex w-100">
+                <div class="w-50">
+                  <label [for]="field.name">{{ field.label }}</label>
+                </div>
+                <div class="w-50">
+                  <input [type]="field.type" class="form-control" [id]="field.name" [formControlName]="field.name"
+                    [placeholder]="field.placeholder || ''" />
+                </div>
+              </div>
+
+              <div *ngIf="field.type === 'radio'">
+                <label>{{ field.label }}</label>
+                <div class="d-flex">
+                  <div *ngFor="let option of field.options" class="me-2">
+                    <input type="radio" [formControlName]="field.name" [value]="option.value" />
+                    &nbsp;{{ option.label }}
+                  </div>
+                </div>
+
+              </div>
+
+              <div *ngIf="field.type === 'checkbox'">
+                <label>{{ field.label }}</label>
+                <div class="d-flex">
+                  <div *ngFor="let option of field.options" class="pe-2">
+                    <input type="checkbox" [formControlName]="field.name" [value]="option.value" />
+                    &nbsp; {{ option.label }}
+                  </div>
+                </div>
+
+              </div>
+
+              <div *ngIf="field.type === 'select'">
+                <div class="w-100 d-flex">
+                  <div class="w-50">
+                    <label [for]="field.name">{{ field.label }}</label>
+                  </div>
+                  <div class="w-50">
+                    <select [id]="field.name" [formControlName]="field.name" class="form-control">
+                      <option *ngFor="let option of field.options" [value]="option.value">{{ option.label }}</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="labelTxt">
+              <label> {{ formDetails.label | titlecase }}</label>
+            </div>
+            <div *ngFor="let field of formDetails.fields" class="pt-2">
+              <div *ngIf="field.type === 'text' || field.type === 'date'" class="w-100 d-flex">
+                <div class="w-50">
+                  <label [for]="field.name">{{ field.label }}</label>
+                </div>
+                <div class="w-50">
+                  <input [type]="field.type" [id]="field.name" class="form-control" [formControlName]="field.name"
+                    [placeholder]="field.placeholder || ''" />
+                </div>
+              </div>
+
+              <div *ngIf="field.type === 'select'" class="w-100 d-flex">
+                <div class="w-50">
+                  <label [for]="field.name">{{ field.label }}</label>
+                </div>
+                <div class="w-50">
+                  <select [id]="field.name" [formControlName]="field.name" class="form-control">
+                    <option *ngFor="let option of field.options" [value]="option.value">{{ option.label }}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="w-100 text-center pt-2">
+            <button type="submit" class="btn btn-orange w-25" [disabled]="formGroup.invalid">Submit</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
